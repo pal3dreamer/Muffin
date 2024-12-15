@@ -3,7 +3,7 @@ A Program to organize your music files with metadata into a folder format more p
 # Usuage
 - Clone the Repo:
   `git clone https://github.com/pal3dreamer/Muffin.git`
-- Chane Directories
+- Change Directories
   `cd Muffin`
 - Run
  `cargo run`
