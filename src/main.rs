@@ -12,7 +12,7 @@ fn main() {
     io::stdin()
         .read_line(&mut dir_input)
         .expect("Failed to read line");
-    // println!("{}/sex/one", dir_input.trim()); // print to debug
+    // println!("{}/media/one", dir_input.trim()); // print to debug
     //    // mv_files();
 
        itr_dir(&dir_input);
@@ -22,25 +22,22 @@ fn main() {
 
 fn ukn_fn(dir_input: &String,f_names:Vec<std::string::String>) {
    for fname in f_names.iter() {
-        // Construct the full path for each file
         let path = format!(
             "{}{}", // Assuming the files are directly under the directory
             dir_input.trim(),
             fname.trim()
         );
 
-        // Read the tag information (metadata) from the file at the path
-        // creates a new instance of Tag
+                // creates a new instance of Tag
         let tag = Tag::new()
             .read_from_path(&path)
-            .unwrap(); // You can handle the error more gracefully instead of unwrap()
-        
+            .unwrap(); 
+
         // Extract artist and album from the file's metadata
         let artist = tag.artist().unwrap();
         let album = tag.album().unwrap();
 
-        // Print the filename and extracted metadata (artist and album)
-       //  println!("{}",artist);
+        //  println!("{}",artist);
         create_dir(artist, album.title, &dir_input);
         mv_files(&dir_input, artist, album.title, f_names.clone());
     }
