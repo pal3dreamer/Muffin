@@ -39,7 +39,7 @@ fn ukn_fn(dir_input: &String,f_names:Vec<std::string::String>) {
 
         //  println!("{}",artist);
         create_dir(artist, album.title, &dir_input);
-        mv_files(&dir_input, artist, album.title, f_names.clone());
+        mv_files(&dir_input, artist, album.title, vec![fname.clone()]);
     }
     }
  
@@ -109,4 +109,3 @@ fn itr_dir(dir_input: &String)-> Vec<std::string::String> {
     ukn_fn(&dir_input, f_names.clone());
     return f_names;
 }
-
